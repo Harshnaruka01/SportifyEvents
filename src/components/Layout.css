@@ -1,0 +1,95 @@
+:root {
+  --bg: #f7f6ff;
+  --card: #ffffff;
+  --text: #1f1f2e;
+  --muted: #5c5c75;
+  --border: rgba(31, 31, 46, 0.12);
+  --accent: #6755ff;
+  --accent-dark: #4b3bd4;
+  --danger: #d31b1b;
+  --shadow: 0 12px 28px rgba(15, 12, 42, 0.08);
+  --radius: 14px;
+  --max: 1040px;
+  --page-padding: 22px;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px var(--page-padding);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 700;
+}
+
+.brand .sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav a:hover {
+  background: rgba(103, 85, 255, 0.12);
+  color: var(--accent-dark);
+}
+
+.nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.page {
+  width: min(100%, var(--max));
+  margin: 24px auto 0;
+  padding: 0 var(--page-padding);
+  flex: 1;
+}
+
+.footer {
+  padding: 18px var(--page-padding);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 720px) {
+  .nav {
+    gap: 10px;
+  }
+}

@@ -1,0 +1,113 @@
+.admin {
+  display: grid;
+  gap: 18px;
+}
+
+.adminTop {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 920px) {
+  .adminTop {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+
+.card {
+  padding: 18px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.adminForm {
+  display: grid;
+  gap: 14px;
+}
+
+.adminForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.adminForm input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.adminActions {
+  display: flex;
+  gap: 10px;
+}
+
+.notice {
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(103, 85, 255, 0.08);
+  border: 1px solid rgba(103, 85, 255, 0.2);
+  color: var(--text);
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.adminButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filters {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filters select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 14px;
+}
+
+button.button,
+button.button.secondary {
+  padding: 10px 16px;
+}

@@ -1,0 +1,79 @@
+.confirmation {
+  display: grid;
+  gap: 18px;
+}
+
+.confirmationHeader {
+  padding: 20px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.confirmationHeader h1 {
+  margin: 0 0 8px;
+}
+
+.card.slip {
+  padding: 18px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.slipGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 16px;
+}
+
+.slipGrid div {
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(103, 85, 255, 0.06);
+}
+
+.slipGrid strong {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--muted);
+}
+
+.slipActions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button {
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.button.secondary {
+  background: rgba(31, 31, 46, 0.08);
+  color: var(--text);
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.card ul li {
+  margin-bottom: 10px;
+}

@@ -489,9 +489,101 @@
   box-shadow: 0 4px 12px rgba(103, 85, 255, 0.2);
 }
 
-@media (max-width: 650px) {
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .events {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  
+  .stepper {
+    padding: 8px 0;
+  }
+  
+  .step {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .register {
+    gap: 16px;
+  }
+  
+  .registerHeader {
+    padding: 16px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .registerHeader h1 {
+    font-size: 24px;
+  }
+  
+  .registerMeta {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .registerMeta p {
+    font-size: 13px;
+  }
+  
+  .stepper {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .step {
+    flex: 0 1 auto;
+    min-width: 80px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .stepNumber {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+  
+  .registerForm fieldset {
+    padding: 16px;
+  }
+  
   .grid {
     grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  
+  .events {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  
+  .chip {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .paymentMethods {
+    gap: 12px;
+  }
+  
+  .paymentOption {
+    padding: 16px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .paymentOption input[type="radio"] {
+    align-self: center;
   }
   
   .qrCodeContainer {
@@ -512,5 +604,138 @@
   .qrDownloadBtn {
     width: 100%;
     max-width: 200px;
+  }
+  
+  .upiUploadSection {
+    padding: 12px;
+  }
+  
+  .review {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .reviewSection {
+    padding: 12px;
+  }
+  
+  .formFooter {
+    align-items: center;
+  }
+  
+  .navButtons {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register {
+    gap: 12px;
+  }
+  
+  .registerHeader {
+    padding: 12px;
+  }
+  
+  .registerHeader h1 {
+    font-size: 20px;
+  }
+  
+  .registerForm fieldset {
+    padding: 12px;
+  }
+  
+  .registerForm legend {
+    font-size: 16px;
+  }
+  
+  .grid input,
+  .grid select,
+  .grid textarea {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  
+  .events {
+    grid-template-columns: 1fr;
+  }
+  
+  .chip {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .paymentOption {
+    padding: 12px;
+  }
+  
+  .paymentOptionContent h4 {
+    font-size: 16px;
+  }
+  
+  .paymentOptionContent p {
+    font-size: 13px;
+  }
+  
+  .upiDetails,
+  .onlinePaymentDetails {
+    padding: 10px;
+  }
+  
+  .upiDetails p,
+  .onlinePaymentDetails p {
+    font-size: 12px;
+  }
+  
+  .qrCode {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .paymentButton {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .preview {
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .preview img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .preview span {
+    font-size: 12px;
+  }
+  
+  .reviewSection h3 {
+    font-size: 14px;
+  }
+  
+  .reviewSection p {
+    font-size: 13px;
+  }
+  
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .hint {
+    font-size: 12px;
+  }
+  
+  .fieldError {
+    font-size: 12px;
   }
 }

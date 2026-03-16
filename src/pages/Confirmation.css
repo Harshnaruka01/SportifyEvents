@@ -9,10 +9,17 @@
   background: white;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .confirmationHeader h1 {
   margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 32px);
+}
+
+.confirmationHeader p {
+  font-size: clamp(14px, 2vw, 16px);
+  color: var(--muted);
 }
 
 .card.slip {
@@ -34,6 +41,12 @@
   padding: 12px;
   border-radius: 14px;
   background: rgba(103, 85, 255, 0.06);
+  transition: transform 0.2s ease;
+}
+
+.slipGrid div:hover {
+  transform: translateY(-2px);
+  background: rgba(103, 85, 255, 0.1);
 }
 
 .slipGrid strong {
@@ -42,6 +55,14 @@
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.slipGrid p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  word-break: break-word;
 }
 
 .slipActions {
@@ -49,6 +70,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  justify-content: center;
 }
 
 .button {
@@ -62,11 +84,37 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 85, 255, 0.3);
 }
 
 .button.secondary {
   background: rgba(31, 31, 46, 0.08);
   color: var(--text);
+}
+
+.button.secondary:hover {
+  background: rgba(31, 31, 46, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  padding: 20px;
+  border-radius: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 3vw, 20px);
 }
 
 .card ul {
@@ -76,4 +124,140 @@
 
 .card ul li {
   margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .slipGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+  }
+  
+  .slipGrid div {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .confirmation {
+    gap: 16px;
+  }
+  
+  .confirmationHeader {
+    padding: 16px;
+  }
+  
+  .card.slip {
+    padding: 16px;
+  }
+  
+  .slipGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .slipGrid div {
+    padding: 12px;
+  }
+  
+  .slipActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .card ul li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmation {
+    gap: 12px;
+  }
+  
+  .confirmationHeader {
+    padding: 12px;
+  }
+  
+  .card.slip {
+    padding: 12px;
+  }
+  
+  .slipGrid {
+    margin-top: 12px;
+  }
+  
+  .slipGrid div {
+    padding: 10px;
+  }
+  
+  .slipGrid strong {
+    font-size: 12px;
+  }
+  
+  .slipGrid p {
+    font-size: 13px;
+  }
+  
+  .slipActions {
+    margin-top: 16px;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .card h2 {
+    font-size: 18px;
+  }
+  
+  .card ul li {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .confirmation {
+    gap: 12px;
+  }
+  
+  .confirmationHeader {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .card.slip,
+  .card {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+  
+  .slipActions {
+    display: none;
+  }
+  
+  .button {
+    display: none;
+  }
 }

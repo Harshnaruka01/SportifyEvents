@@ -9,9 +9,15 @@
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 920px) {
+@media (min-width: 1024px) {
   .adminTop {
-    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .adminTop {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -23,6 +29,22 @@
   box-shadow: var(--shadow);
 }
 
+.card h1 {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 3vw, 24px);
+}
+
+.card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 2.5vw, 20px);
+}
+
+.card p {
+  margin: 0 0 12px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  color: var(--muted);
+}
+
 .adminForm {
   display: grid;
   gap: 14px;
@@ -32,17 +54,21 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .adminForm input {
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 12px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  min-height: 44px;
 }
 
 .adminActions {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .notice {
@@ -51,12 +77,20 @@
   background: rgba(103, 85, 255, 0.08);
   border: 1px solid rgba(103, 85, 255, 0.2);
   color: var(--text);
+  font-size: clamp(13px, 1.5vw, 14px);
 }
 
 .hint {
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: clamp(12px, 1.5vw, 13px);
   color: var(--muted);
+}
+
+.hint code {
+  background: rgba(103, 85, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
 }
 
 .adminButtons {
@@ -68,7 +102,7 @@
 .filters {
   display: grid;
   gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   align-items: end;
 }
 
@@ -76,38 +110,260 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 
 .filters select {
   padding: 10px 12px;
   border: 1px solid var(--border);
   border-radius: 12px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  min-height: 44px;
 }
 
 .tableWrapper {
   overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 thead th {
   text-align: left;
   padding: 12px 10px;
-  border-bottom: 1px solid var(--border);
-  font-size: 13px;
+  border-bottom: 2px solid var(--border);
+  font-size: clamp(12px, 1.5vw, 13px);
   color: var(--muted);
+  font-weight: 600;
+  background: rgba(103, 85, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 tbody td {
   padding: 12px 10px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  font-size: 14px;
+  font-size: clamp(13px, 1.5vw, 14px);
+}
+
+tbody tr:hover {
+  background: rgba(103, 85, 255, 0.02);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 button.button,
 button.button.secondary {
   padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: clamp(14px, 1.5vw, 16px);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+button.button {
+  background: var(--accent);
+  color: white;
+}
+
+button.button:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 85, 255, 0.3);
+}
+
+button.button.secondary {
+  background: rgba(31, 31, 46, 0.08);
+  color: var(--text);
+}
+
+button.button.secondary:hover {
+  background: rgba(31, 31, 46, 0.12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.adminHelper {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(103, 85, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.adminHelper p {
+  margin: 0;
+  font-size: clamp(12px, 1.5vw, 13px);
+  color: var(--muted);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .admin {
+    gap: 16px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .filters {
+    grid-template-columns: 1fr;
+  }
+  
+  .adminActions {
+    flex-direction: column;
+  }
+  
+  .adminButtons {
+    flex-direction: column;
+  }
+  
+  button.button,
+  button.button.secondary {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin {
+    gap: 14px;
+  }
+  
+  .card {
+    padding: 14px;
+  }
+  
+  .adminForm {
+    gap: 12px;
+  }
+  
+  .adminForm input {
+    padding: 8px 12px;
+  }
+  
+  .filters {
+    gap: 12px;
+  }
+  
+  .filters select {
+    padding: 8px 12px;
+  }
+  
+  .tableWrapper {
+    margin: 0 -14px;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  thead th {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  
+  tbody td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  
+  .adminHelper {
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin {
+    gap: 12px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .adminForm input {
+    padding: 8px 10px;
+  }
+  
+  .filters select {
+    padding: 8px 10px;
+  }
+  
+  button.button,
+  button.button.secondary {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  
+  .notice {
+    padding: 12px;
+  }
+  
+  .adminHelper {
+    padding: 6px 8px;
+  }
+  
+  thead th {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+  
+  tbody td {
+    padding: 8px 6px;
+    font-size: 11px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .adminTop {
+    grid-template-columns: 1fr;
+  }
+  
+  .adminButtons {
+    display: none;
+  }
+  
+  .filters {
+    display: none;
+  }
+  
+  .card {
+    background: white;
+    box-shadow: none;
+    border: 1px solid #000;
+    break-inside: avoid;
+  }
+  
+  button.button,
+  button.button.secondary {
+    display: none;
+  }
+  
+  .notice {
+    display: none;
+  }
 }

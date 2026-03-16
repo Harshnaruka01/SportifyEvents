@@ -13,6 +13,16 @@
   background: white;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.registerHeader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(103, 85, 255, 0.18), transparent 60%);
+  pointer-events: none;
 }
 
 .registerHeader h1 {
@@ -30,6 +40,59 @@
   border: 1px solid rgba(211, 27, 27, 0.3);
   background: rgba(211, 27, 27, 0.06);
   color: var(--danger);
+}
+
+.stepper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.step {
+  flex: 1;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(31, 31, 46, 0.1);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.step:hover {
+  transform: translateY(-1px);
+}
+
+.step.active {
+  background: linear-gradient(135deg, rgba(103, 85, 255, 0.13), rgba(103, 85, 255, 0.22));
+  border-color: rgba(103, 85, 255, 0.45);
+}
+
+.step.completed {
+  background: rgba(103, 85, 255, 0.14);
+}
+
+.stepNumber {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(103, 85, 255, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.stepSection {
+  transition: opacity 0.25s ease;
+}
+
+.stepSection.hidden {
+  display: none;
+  opacity: 0;
 }
 
 .registerForm {
@@ -103,17 +166,77 @@
   background: #f8f6ff;
   cursor: pointer;
   user-select: none;
+  transition: transform 0.14s ease, box-shadow 0.14s ease;
+}
+
+.chip.selected {
+  background: rgba(103, 85, 255, 0.14);
+  border-color: rgba(103, 85, 255, 0.4);
+  box-shadow: 0 14px 24px rgba(103, 85, 255, 0.15);
+}
+
+.chip:hover {
+  transform: translateY(-1px);
 }
 
 .chip input {
   cursor: pointer;
 }
 
+.preview {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px dashed rgba(31, 31, 46, 0.2);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: rgba(103, 85, 255, 0.05);
+}
+
+.preview img {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(103, 85, 255, 0.35);
+}
+
+.preview span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.review {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.reviewSection {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 31, 46, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.reviewSection h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
 .formFooter {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
+}
+
+.navButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .hint {
@@ -151,8 +274,243 @@
   box-shadow: 0 14px 24px rgba(103, 85, 255, 0.22);
 }
 
+.button.secondary {
+  background: rgba(31, 31, 46, 0.08);
+  color: var(--text);
+}
+
+/* Payment Styles */
+.paymentMethods {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.paymentOption {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.paymentOption:hover {
+  border-color: rgba(103, 85, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 85, 255, 0.1);
+}
+
+.paymentOption.selected {
+  border-color: rgba(103, 85, 255, 0.6);
+  background: rgba(103, 85, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(103, 85, 255, 0.15);
+}
+
+.paymentOption input[type="radio"] {
+  margin: 0;
+  margin-top: 4px;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--accent);
+}
+
+.paymentOptionContent h4 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.paymentOptionContent p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.upiDetails {
+  background: rgba(103, 85, 255, 0.05);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(103, 85, 255, 0.2);
+}
+
+.upiDetails p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.upiDetails code {
+  background: rgba(103, 85, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.onlinePaymentDetails {
+  background: rgba(16, 185, 129, 0.05);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.onlinePaymentDetails p {
+  margin: 4px 0;
+  font-size: 13px;
+}
+
+.paymentActions {
+  margin-top: 12px;
+}
+
+.paymentButton {
+  background: linear-gradient(135deg, #10b981, #059669);
+  font-weight: 600;
+  width: 100%;
+  max-width: 200px;
+}
+
+.paymentButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.paymentSuccess {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  color: #047857;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.successIcon {
+  color: #10b981;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.upiUploadSection {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(103, 85, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(103, 85, 255, 0.2);
+}
+
+.upiUploadSection label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.fileSelected {
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  background: rgba(103, 85, 255, 0.1);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.helper {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 4px 0;
+}
+
+/* QR Code Styles */
+.qrCodeSection {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(103, 85, 255, 0.2);
+}
+
+.qrCodeSection p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.qrCodeContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(103, 85, 255, 0.3);
+}
+
+.qrCode {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid rgba(103, 85, 255, 0.2);
+}
+
+.qrCodeInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qrCodeInfo p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.qrDownloadBtn {
+  background: rgba(103, 85, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(103, 85, 255, 0.3);
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.qrDownloadBtn:hover:not(:disabled) {
+  background: rgba(103, 85, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(103, 85, 255, 0.2);
+}
+
 @media (max-width: 650px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+  
+  .qrCodeContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .qrCode {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .qrCodeInfo {
+    align-items: center;
+  }
+  
+  .qrDownloadBtn {
+    width: 100%;
+    max-width: 200px;
   }
 }

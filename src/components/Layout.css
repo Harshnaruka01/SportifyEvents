@@ -17,7 +17,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg);
+  background: radial-gradient(circle at top, rgba(103, 85, 255, 0.12), rgba(247, 246, 255, 1));
   color: var(--text);
 }
 
